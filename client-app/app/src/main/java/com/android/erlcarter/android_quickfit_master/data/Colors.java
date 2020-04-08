@@ -1,7 +1,8 @@
 package com.android.erlcarter.android_quickfit_master.data;
 
 import android.content.Context;
-import android.support.v4.content.ContextCompat;
+
+import androidx.core.content.ContextCompat;
 
 import com.android.erlcarter.android_quickfit_master.R;
 

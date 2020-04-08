@@ -3,8 +3,6 @@ package com.android.erlcarter.android_quickfit_master.activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Message;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -12,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.erlcarter.android_quickfit_master.R;
 import com.android.erlcarter.android_quickfit_master.baseconfig.BaseActivity;
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
     protected void initUi() {
         colors = new Colors(this);
-        btb_main = findViewById(R.id.btb_main);
+        btb_main = (BottomTabBar) findViewById(R.id.btb_main);
         btb_main.init(this.getSupportFragmentManager())
                 .setImgSize(25,25)
                 .setFontSize(12)

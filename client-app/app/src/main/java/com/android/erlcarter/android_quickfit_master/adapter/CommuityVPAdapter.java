@@ -1,9 +1,10 @@
 package com.android.erlcarter.android_quickfit_master.adapter;
 
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 
 import java.util.List;
 
@@ -12,7 +13,7 @@ public class CommuityVPAdapter extends FragmentPagerAdapter {
     private List<Fragment> pageFragment;
     private final String[] titles;
 
-    public CommuityVPAdapter(FragmentManager fm,List<Fragment>pageFragment,String[] titles) {
+    public CommuityVPAdapter(FragmentManager fm, List<Fragment> pageFragment, String[] titles) {
         super(fm);
         this.pageFragment = pageFragment;
         this.titles =  titles;
@@ -28,7 +29,6 @@ public class CommuityVPAdapter extends FragmentPagerAdapter {
         return pageFragment.size();
     }
 
-    @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
         return super.getPageTitle(position);

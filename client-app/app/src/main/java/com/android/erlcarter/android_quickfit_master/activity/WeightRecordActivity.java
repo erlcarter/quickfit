@@ -1,7 +1,8 @@
 package com.android.erlcarter.android_quickfit_master.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.erlcarter.android_quickfit_master.R;
 import com.android.erlcarter.android_quickfit_master.data.Colors;
@@ -23,7 +24,7 @@ public class WeightRecordActivity extends AppCompatActivity {
 
     private void initui() {
         colors = new Colors(this);
-        btb_weight_record = findViewById(R.id.btb_weight_record);
+        btb_weight_record = (BottomTabBar) findViewById(R.id.btb_weight_record);
         btb_weight_record.init(this.getSupportFragmentManager())
                 .setImgSize(25,25)
                 .setFontSize(12)

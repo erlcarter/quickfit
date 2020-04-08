@@ -7,8 +7,6 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Message;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -17,6 +15,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.core.content.ContextCompat;
 
 import com.android.erlcarter.android_quickfit_master.R;
 import com.android.erlcarter.android_quickfit_master.baseconfig.BaseActivity;
@@ -83,12 +83,12 @@ public class LoginActivity extends BaseActivity {
     @Override
     protected void initData() {
         //初始化视图对象
-        tv_login_title = findViewById(R.id.tv_login_title);
-        tv_login_signature = findViewById(R.id.tv_login_signature);
-        tv_login_forgotpassword = findViewById(R.id.tv_login_forgotpassword);
-        et_login_username = findViewById(R.id.et_login_username);
-        et_login_password = findViewById(R.id.et_login_password);
-        qrb_login = findViewById(R.id.qrb_login);
+        tv_login_title = (TextView) findViewById(R.id.tv_login_title);
+        tv_login_signature = (TextView) findViewById(R.id.tv_login_signature);
+        tv_login_forgotpassword = (TextView) findViewById(R.id.tv_login_forgotpassword);
+        et_login_username = (EditText) findViewById(R.id.et_login_username);
+        et_login_password = (EditText) findViewById(R.id.et_login_password);
+        qrb_login = (Button) findViewById(R.id.qrb_login);
         //基本信息
         mbd = MembersData.getInstance();
         btnEnable = new HashMap<>();            //登录框状态

@@ -23,12 +23,12 @@
             android:padding="16dp"
             android:orientation="vertical">
             <!-- 用户信息展示 -->
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/cv_host_userinfo_show"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                app:cardBackgroundColor="#fbfbfb"
+                app:cardBackgroundColor="@color/colorWhite"
                 app:cardCornerRadius="15dp"
                 app:cardElevation="2dp">
                 <LinearLayout
@@ -40,21 +40,37 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="16dp">
-                        <ImageView
+                        <de.hdodenhof.circleimageview.CircleImageView
                             android:id="@+id/iv_host_user_img"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/user_img"
+                            android:layout_marginRight="15dp"
+                            app:civ_border_color="@android:color/darker_gray"
+                            app:civ_border_overlay="false"
+                            app:civ_border_width="2dp"
+                            app:civ_fill_color="@color/colorGray4"
                             android:layout_alignParentLeft="true"/>
                         <TextView
                             android:id="@+id/tv_host_user_uid"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
                             android:layout_toRightOf="@+id/iv_host_user_img"
+                            android:textSize="16dp"
+                            android:textColor="@color/colorConfigBlack"
+                            android:textFontWeight="900"
                             android:text="zh_test01"/>
-                        <Button
+                        <TextView
                             android:id="@+id/btn_host_health_clocking"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="90dp"
+                            android:layout_height="25dp"
+                            android:background="@drawable/healthclockbutton"
+                            android:text="健康打卡0/1"
+                            android:textColor="@android:color/holo_blue_dark"
+                            android:textFontWeight="900"
+                            android:textAlignment="center"
+                            android:gravity="center"
                             android:layout_alignParentRight="true"/>
                     </RelativeLayout>
                     <RelativeLayout
@@ -66,24 +82,22 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentLeft="true"
+                            android:textSize="14dp"
                             android:text="阶段"/>
                         <TextView
                             android:id="@+id/tv_host_weight_now_key"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
+                            android:textSize="14dp"
                             android:text="当前(公斤)"/>
                         <TextView
                             android:id="@+id/tv_host_bmi_key"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
+                            android:textSize="14dp"
                             android:text="BMI"/>
-                        <ImageView
-                            android:id="@+id/iv_host_data_on_off"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_toRightOf="@id/tv_host_weight_now_key"/>
                     </RelativeLayout>
                     <RelativeLayout
                         android:layout_width="wrap_content"
@@ -92,29 +106,40 @@
                             android:id="@+id/tv_host_stage_val"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
                             android:layout_alignParentLeft="true"
-                            android:text="***"/>
+                            android:textSize="16dp"
+                            android:textColor="@color/colorConfigBlack"
+                            android:gravity="center_vertical"
+                            android:text="0"/>
                         <TextView
                             android:id="@+id/tv_host_weight_now_val"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
-                            android:text="***"/>
+                            android:textSize="16dp"
+                            android:textColor="@color/colorConfigBlack"
+                            android:gravity="center_vertical"
+                            android:text="0"/>
                         <TextView
                             android:id="@+id/tv_host_bmi_val"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
                             android:layout_alignParentRight="true"
-                            android:text="***"/>
+                            android:textSize="16dp"
+                            android:textColor="@color/colorConfigBlack"
+                            android:gravity="center_vertical"
+                            android:text="0"/>
                     </RelativeLayout>
                 </LinearLayout>
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
             <!-- 私人定制 -->
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                app:cardBackgroundColor="#fbfbfb"
+                app:cardBackgroundColor="@color/colorWhite"
                 app:cardCornerRadius="15dp"
                 app:cardElevation="2dp">
                 <LinearLayout
@@ -130,45 +155,58 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentLeft="true"
+                            android:textSize="18dp"
+                            android:textColor="@color/colorConfigBlack"
                             android:text="为你定制"/>
                         <ImageView
                             android:id="@+id/iv_host_private_custom_detail"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:src="@drawable/host_more"
                             android:layout_alignParentRight="true"/>
                     </RelativeLayout>
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="5dp">
                         <TextView
                             android:id="@+id/tv_host_order_topic"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentLeft="true"
+                            android:textColor="@color/colorConfigBlack"
+                            android:textFontWeight="900"
+                            android:textSize="14dp"
                             android:text="#标语测试#"/>
                         <TextView
                             android:id="@+id/tv_host_order_topic_signature"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_toRightOf="@+id/tv_host_order_topic"
+                            android:textSize="12dp"
                             android:text="这是一个对标语的测试"/>
                     </RelativeLayout>
-                    <android.support.v7.widget.CardView
+                    <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:padding="10dp">
                         <RelativeLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:background="@color/colorGray8">
                             <ImageView
                                 android:id="@+id/iv_host_set_meal_img"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_margin="5dp"
+                                android:src="@drawable/load_0"
                                 android:layout_alignParentLeft="true"/>
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical"
-                                android:layout_alignParentRight="true">
+                                android:layout_toRightOf="@id/iv_host_set_meal_img">
                                 <TextView
                                     android:id="@+id/tv_host_set_meal_title"
                                     android:layout_width="wrap_content"
@@ -181,16 +219,16 @@
                                     android:text="这是一个套餐的测试"/>
                             </LinearLayout>
                         </RelativeLayout>
-                    </android.support.v7.widget.CardView>
+                    </androidx.cardview.widget.CardView>
 
                 </LinearLayout>
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
             <!-- 健康档案 -->
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                app:cardBackgroundColor="#fbfbfb"
+                app:cardBackgroundColor="@color/colorWhite"
                 app:cardCornerRadius="15dp"
                 app:cardElevation="2dp">
                 <LinearLayout
@@ -206,13 +244,22 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentLeft="true"
+                            android:textSize="18dp"
+                            android:textColor="@color/colorConfigBlack"
                             android:text="健康档案"/>
                         <ImageView
                             android:id="@+id/iv_host_health_archive_btn"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:src="@drawable/host_more"
                             android:layout_alignParentRight="true"/>
                     </RelativeLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="4dp"
+                        android:background="@color/colorGray8"/>
                     <RelativeLayout
                         android:id="@+id/rl_food_reord"
                         android:layout_width="match_parent"
@@ -220,57 +267,139 @@
                         android:layout_marginTop="15dp"
                         android:layout_marginBottom="15dp">
                         <TextView
-                            android:id="@+id/tv_host_foods_btn"
+                            android:id="@+id/fr_part_one"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentLeft="true"
-                            android:text="还可以吃xxx千卡"/>
-
+                            android:text="还可以吃"/>
+                        <TextView
+                            android:id="@+id/tv_eat_food_almost"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:textColor="@color/colorBlack"
+                            android:textFontWeight="900"
+                            android:layout_toRightOf="@id/fr_part_one"
+                            android:text="0"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@id/tv_eat_food_almost"
+                            android:text="千卡"/>
                     </RelativeLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="4dp"
+                        android:background="@color/colorGray8"/>
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="15dp">
                         <TextView
-                            android:id="@+id/tv_host_weight_btn"
+                            android:id="@+id/wr_part_one"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentLeft="true"
-                            android:text="体重xxx公斤"/>
+                            android:text="体重"/>
+                        <TextView
+                            android:id="@+id/tv_host_weight"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:textFontWeight="900"
+                            android:textColor="@color/colorBlack"
+                            android:layout_toRightOf="@id/wr_part_one"
+                            android:text="0"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@+id/tv_host_weight"
+                            android:text="公斤"/>
 
                     </RelativeLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="4dp"
+                        android:background="@color/colorGray8"/>
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="15dp">
                         <TextView
-                            android:id="@+id/tv_host_waistline_btn"
+                            android:id="@+id/yr_part_one"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentLeft="true"
-                            android:text="腰围xxxcm"/>
-
+                            android:text="腰围"/>
+                        <TextView
+                            android:id="@+id/tv_host_yaoweight"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:textFontWeight="900"
+                            android:textColor="@color/colorBlack"
+                            android:layout_toRightOf="@id/yr_part_one"
+                            android:text="0"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@id/tv_host_yaoweight"
+                            android:text="cm"/>
                     </RelativeLayout>
                 </LinearLayout>
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
             <!-- 其他列表 -->
 
             <!-- 会员开通 -->
-            <Button
+            <RelativeLayout
                 android:id="@+id/btn_host_quickfit_member_establish"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="70dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:background="@drawable/load_vip">
+                <ImageView
+                    android:id="@+id/iv_vip_img"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_alignParentLeft="true"
+                    android:src="@drawable/vip_member_img"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/iv_vip_img"
+                    android:textColor="@color/colorBlack"
+                    android:textFontWeight="900"
+                    android:text="开通Easy会员，健康减重更轻松"/>
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/host_more"/>
+            </RelativeLayout>
             <!-- 为你推荐 -->
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="#fbfbfb"
+                app:cardBackgroundColor="@color/colorWhite"
                 app:cardCornerRadius="15dp"
                 app:cardElevation="2dp">
                 <TextView
                     android:id="@+id/tv_host_recommend_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="16dp"
+                    android:textColor="@color/colorConfigBlack"
+                    android:textFontWeight="900"
                     android:text="为你推荐"/>
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
         </LinearLayout>
 
     </LinearLayout>

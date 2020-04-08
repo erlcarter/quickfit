@@ -1,11 +1,12 @@
 package com.android.erlcarter.android_quickfit_master.baseconfig;
 
 import android.content.Context;
-import android.support.annotation.IdRes;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+
+import androidx.annotation.IdRes;
 
 import java.util.List;
 

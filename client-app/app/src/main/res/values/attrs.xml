@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CircularProgressView">
+        <attr name="roundColor" format="color"/>
+        <attr name="roundProgressColor" format="color"/>
+        <attr name="roundWidth" format="dimension"/>
+        <attr name="textTop" format="string|float|integer"/>
+        <attr name="textCenter" format="string|float|integer"/>
+        <attr name="textBottom" format="string|float|integer"/>
+        <attr name="textTopColor" format="color"/>
+        <attr name="textCenterColor" format="color"/>
+        <attr name="textBottomColor" format="color"/>
+        <attr name="textTopSize" format="dimension"/>
+        <attr name="textCenterSize" format="dimension"/>
+        <attr name="textBottomSize" format="dimension"/>
+        <attr name="textTopIsDisplay" format="boolean"/>
+        <attr name="textCenterIsDisplay" format="boolean"/>
+        <attr name="textBottomIsDisplay" format="boolean"/>
+        <attr name="max" format="integer"/>
+        <attr name="style">
+            <enum name="STROKE" value="0"></enum>
+            <enum name="FILL" value="1"></enum>
+        </attr>
+    </declare-styleable>
+</resources>
