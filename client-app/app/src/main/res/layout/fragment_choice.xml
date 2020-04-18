@@ -6,11 +6,51 @@
     tools:context=".fragment.ChoiceFragment">
 
     <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_commuity_activity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:background="@color/colorWhite">
     </androidx.recyclerview.widget.RecyclerView>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="精选动态"
+                android:textColor="@color/colorConfigBlack"
+                android:textSize="18dp"
+                android:textFontWeight="900"
+                android:layout_alignParentLeft="true"/>
+            <ImageView
+                android:id="@+id/iv_choice_select_more"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/choice_select_more"
+                android:layout_alignParentRight="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="热门"
+                android:textSize="14dp"
+                android:textColor="#8a8a8a"
+                android:layout_toLeftOf="@id/iv_choice_select_more"/>
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_commuity_activity_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </LinearLayout>
 
 </FrameLayout>

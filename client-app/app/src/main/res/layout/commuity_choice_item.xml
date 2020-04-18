@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="12dp"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <!-- 头像 -->
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/civ_choice_item_img"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentLeft="true"/>
+        <!-- 用户名 -->
+        <TextView
+            android:id="@+id/tv_choice_item_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:textFontWeight="900"
+            android:layout_toRightOf="@+id/civ_choice_item_img"
+            android:text="texter1"/>
+        <!-- 举报 -->
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/choice_item_more"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <!-- 文字 -->
+        <TextView
+            android:id="@+id/tv_choice_item_content_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="内容"/>
+        <!-- 内容 -->
+        <com.android.erlcarter.android_quickfit_master.view.CommuityPhotoGridView
+            android:id="@+id/gv_choice_item_content_img"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:columnWidth="90dp"
+            android:focusable="false"
+            android:gravity="center_horizontal"
+            android:horizontalSpacing="1dip"
+            android:numColumns="3"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="12dip">
+        </com.android.erlcarter.android_quickfit_master.view.CommuityPhotoGridView>
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <!-- 点赞 -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/like"/>
+            <TextView
+                android:layout_width="25dp"
+                android:layout_height="25dp" />
+        </LinearLayout>
+        <!-- 评论 -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/comment"/>
+            <TextView
+                android:layout_width="25dp"
+                android:layout_height="25dp" />
+        </LinearLayout>
+        <!-- 收藏 -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/storeup"/>
+            <TextView
+                android:layout_width="25dp"
+                android:layout_height="25dp" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

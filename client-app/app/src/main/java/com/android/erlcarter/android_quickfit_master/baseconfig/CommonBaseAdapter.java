@@ -81,7 +81,7 @@ public abstract class CommonBaseAdapter<T> extends BaseAdapter {
      */
     protected abstract void initData(ViewHolder viewHolder,T t,int position);
 
-    private class ViewHolder {
+    protected class ViewHolder {
         private SparseArray<View> viewSparseArray;
 
         ViewHolder() {

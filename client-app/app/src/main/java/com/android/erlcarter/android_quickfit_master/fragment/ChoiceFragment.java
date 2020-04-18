@@ -26,7 +26,7 @@ import java.util.List;
 public class ChoiceFragment extends Fragment {
 
     private View view;
-    private RecyclerView rv_commuity_activity;//声明RecyclerView
+    private RecyclerView rv_commuity_activity,rv_commuity_activity_item;//声明RecyclerView
     private CommuityRecyclerViewAdapter adapter;//声明适配器
     private List<CommuityRecyclerViewData> list;
     private CommuityRecyclerViewData test1,test2,test3;
@@ -44,17 +44,14 @@ public class ChoiceFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_choice, container, false);
         initUi();
         initData();
-        adapter = new CommuityRecyclerViewAdapter(getContext(),list);
-        LinearLayoutManager manager = new LinearLayoutManager(getContext());
-        manager.setOrientation(LinearLayoutManager.VERTICAL);
-        manager.setOrientation(RecyclerView.HORIZONTAL);
-        rv_commuity_activity.setLayoutManager(manager);
-        rv_commuity_activity.setAdapter(adapter);
+        initActivityRecyclerView();
+        //initChoiceItemRecyclerView();
         return view;
     }
 
     private void initUi(){
         rv_commuity_activity = view.findViewById(R.id.rv_commuity_activity);
+        rv_commuity_activity_item = view.findViewById(R.id.rv_commuity_activity_item);
         list = new ArrayList<>();
         test1 = new CommuityRecyclerViewData();
         test2 = new CommuityRecyclerViewData();
@@ -76,6 +73,30 @@ public class ChoiceFragment extends Fragment {
         list.add(test1);
         list.add(test2);
         list.add(test3);
+    }
+
+    /**
+     * 初始化活动信息
+     */
+    private void initActivityRecyclerView(){
+        adapter = new CommuityRecyclerViewAdapter(getContext(),list);
+        LinearLayoutManager manager = new LinearLayoutManager(getContext());
+        manager.setOrientation(LinearLayoutManager.VERTICAL);
+        manager.setOrientation(RecyclerView.HORIZONTAL);
+        rv_commuity_activity.setLayoutManager(manager);
+        rv_commuity_activity.setAdapter(adapter);
+    }
+
+    /**
+     * 初始化动态信息
+     */
+    private void initChoiceItemRecyclerView(){
+        adapter = new CommuityRecyclerViewAdapter(getContext(),list);
+        LinearLayoutManager manager = new LinearLayoutManager(getContext());
+        manager.setOrientation(LinearLayoutManager.VERTICAL);
+        manager.setOrientation(RecyclerView.HORIZONTAL);
+        rv_commuity_activity.setLayoutManager(manager);
+        rv_commuity_activity.setAdapter(adapter);
     }
 
 }

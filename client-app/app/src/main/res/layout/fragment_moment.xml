@@ -6,9 +6,68 @@
     tools:context=".fragment.MomentFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="热门话题"
+                android:textColor="@color/colorConfigBlack"
+                android:textSize="18dp"
+                android:textFontWeight="900"
+                android:layout_alignParentLeft="true"/>
+            <ImageView
+                android:id="@+id/iv_topic_select_more"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/topic_select_more"
+                android:layout_alignParentRight="true"/>
+            <TextView
+                android:id="@+id/tv_topic_select_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/iv_topic_select_more"/>
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite">
+            <TextView
+                android:id="@+id/tv_moment_of_friend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:textColor="@color/colorConfigBlack"
+                android:textSize="18dp"
+                android:textFontWeight="900"
+                android:text="好友动态"/>
+            <ImageView
+                android:id="@+id/iv_moment_select_more"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/moment_select_more"
+                android:layout_alignParentRight="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/iv_moment_select_more"
+                android:text="发现好友"/>
+        </RelativeLayout>
+
+    </LinearLayout>
 
 </FrameLayout>
