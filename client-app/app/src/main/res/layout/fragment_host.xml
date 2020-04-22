@@ -7,27 +7,21 @@
     tools:context=".fragment.HostFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorWhite"
         android:orientation="vertical">
-
-        <!-- 顶栏 -->
-        <include layout="@layout/host_title_bar"/>
-
-        <!-- 中间 -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:orientation="vertical">
+            <!-- 顶栏 -->
+            <include layout="@layout/host_title_bar"/>
             <!-- 用户信息展示 -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cv_host_userinfo_show"
-                android:layout_width="match_parent"
+                android:layout_width="400dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="100dp"
                 android:layout_marginBottom="16dp"
+                android:layout_centerHorizontal="true"
                 app:cardBackgroundColor="@color/colorWhite"
                 app:cardCornerRadius="15dp"
                 app:cardElevation="2dp">
@@ -55,7 +49,7 @@
                             android:id="@+id/tv_host_user_uid"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:gravity="center_vertical"
+                            android:layout_centerVertical="true"
                             android:layout_toRightOf="@+id/iv_host_user_img"
                             android:textSize="16dp"
                             android:textColor="@color/colorConfigBlack"
@@ -63,10 +57,12 @@
                             android:text="zh_test01"/>
                         <TextView
                             android:id="@+id/btn_host_health_clocking"
-                            android:layout_width="90dp"
-                            android:layout_height="25dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
                             android:background="@drawable/healthclockbutton"
                             android:text="健康打卡0/1"
+                            android:textSize="12sp"
                             android:textColor="@android:color/holo_blue_dark"
                             android:textFontWeight="900"
                             android:textAlignment="center"
@@ -82,6 +78,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentLeft="true"
+                            android:layout_marginBottom="7dp"
                             android:textSize="14dp"
                             android:text="阶段"/>
                         <TextView
@@ -89,6 +86,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
+                            android:layout_marginBottom="5dp"
                             android:textSize="14dp"
                             android:text="当前(公斤)"/>
                         <TextView
@@ -96,49 +94,53 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
+                            android:layout_marginBottom="7dp"
                             android:textSize="14dp"
                             android:text="BMI"/>
-                    </RelativeLayout>
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                 </RelativeLayout>
+                 <RelativeLayout
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content">
                         <TextView
                             android:id="@+id/tv_host_stage_val"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="5dp"
                             android:layout_alignParentLeft="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="5dp"
                             android:textSize="16dp"
                             android:textColor="@color/colorConfigBlack"
-                            android:gravity="center_vertical"
                             android:text="0"/>
                         <TextView
                             android:id="@+id/tv_host_weight_now_val"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
+                            android:layout_centerVertical="true"
                             android:textSize="16dp"
                             android:textColor="@color/colorConfigBlack"
-                            android:gravity="center_vertical"
                             android:text="0"/>
                         <TextView
                             android:id="@+id/tv_host_bmi_val"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="5dp"
                             android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="5dp"
                             android:textSize="16dp"
                             android:textColor="@color/colorConfigBlack"
-                            android:gravity="center_vertical"
                             android:text="0"/>
                     </RelativeLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
             <!-- 私人定制 -->
             <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
+                android:id="@+id/cv_host_set_meal_show"
+                android:layout_width="400dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
+                android:layout_below="@+id/cv_host_userinfo_show"
+                android:layout_centerHorizontal="true"
                 app:cardBackgroundColor="@color/colorWhite"
                 app:cardCornerRadius="15dp"
                 app:cardElevation="2dp">
@@ -160,8 +162,8 @@
                             android:text="为你定制"/>
                         <ImageView
                             android:id="@+id/iv_host_private_custom_detail"
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
                             android:src="@drawable/host_more"
                             android:layout_alignParentRight="true"/>
                     </RelativeLayout>
@@ -169,12 +171,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="15dp"
-                        android:layout_marginBottom="5dp">
+                        android:layout_marginBottom="15dp">
                         <TextView
                             android:id="@+id/tv_host_order_topic"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentLeft="true"
+                            android:layout_marginRight="10dp"
                             android:textColor="@color/colorConfigBlack"
                             android:textFontWeight="900"
                             android:textSize="14dp"
@@ -194,7 +197,7 @@
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@color/colorGray8">
+                            android:background="#f8f8f8">
                             <ImageView
                                 android:id="@+id/iv_host_set_meal_img"
                                 android:layout_width="50dp"
@@ -211,11 +214,15 @@
                                     android:id="@+id/tv_host_set_meal_title"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginBottom="10dp"
+                                    android:textColor="@color/colorConfigBlack"
                                     android:text="套餐测试"/>
                                 <TextView
                                     android:id="@+id/tv_host_set_meal_signature"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:textColor="@color/colorGray8"
+                                    android:textSize="14sp"
                                     android:text="这是一个套餐的测试"/>
                             </LinearLayout>
                         </RelativeLayout>
@@ -225,9 +232,12 @@
             </androidx.cardview.widget.CardView>
             <!-- 健康档案 -->
             <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
+                android:id="@+id/cv_host_health_paper"
+                android:layout_width="400dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
+                android:layout_below="@+id/cv_host_set_meal_show"
+                android:layout_centerHorizontal="true"
                 app:cardBackgroundColor="@color/colorWhite"
                 app:cardCornerRadius="15dp"
                 app:cardElevation="2dp">
@@ -238,7 +248,8 @@
                     android:padding="16dp">
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp">
                         <TextView
                             android:id="@+id/tv_host_health_archive_title"
                             android:layout_width="wrap_content"
@@ -249,8 +260,8 @@
                             android:text="健康档案"/>
                         <ImageView
                             android:id="@+id/iv_host_health_archive_btn"
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
                             android:src="@drawable/host_more"
                             android:layout_alignParentRight="true"/>
                     </RelativeLayout>
@@ -359,10 +370,12 @@
             <!-- 会员开通 -->
             <RelativeLayout
                 android:id="@+id/btn_host_quickfit_member_establish"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_width="400dp"
+                android:layout_height="100dp"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/cv_host_health_paper"
                 android:background="@drawable/load_vip">
                 <ImageView
                     android:id="@+id/iv_vip_img"
@@ -386,8 +399,10 @@
             </RelativeLayout>
             <!-- 为你推荐 -->
             <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
+                android:layout_width="400dp"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/btn_host_quickfit_member_establish"
+                android:layout_centerHorizontal="true"
                 app:cardBackgroundColor="@color/colorWhite"
                 app:cardCornerRadius="15dp"
                 app:cardElevation="2dp">
@@ -400,7 +415,5 @@
                     android:textFontWeight="900"
                     android:text="为你推荐"/>
             </androidx.cardview.widget.CardView>
-        </LinearLayout>
-
-    </LinearLayout>
+    </RelativeLayout>
 </FrameLayout>

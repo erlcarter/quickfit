@@ -42,6 +42,10 @@ public class CommuityFragment extends Fragment {
         CommuityVPAdapter cvpAdapter = new CommuityVPAdapter(getFragmentManager(),fragments,titles);
         vp_commuity.setAdapter(cvpAdapter);
         tab_title.setupWithViewPager(vp_commuity);
+        //关联viewpager后会移除所有tab，需手动添加
+        for (int i=0;i<titles.length;i++){
+            tab_title.getTabAt(i).setText(titles[i]);
+        }
         return view;
     }
 }

@@ -25,47 +25,61 @@
             app:indicator_drawable_selected="@mipmap/dot_sel"
             app:indicator_drawable_unselected="@mipmap/dot"/>
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/shop_navigation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <GridView
-                android:id="@+id/gv_shop_banner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="fill_horizontal"
-                android:stretchMode="columnWidth">
-            </GridView>
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/shop_activity"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <GridView
-                android:id="@+id/gv_panic_buying_banner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-            </GridView>
-        </androidx.cardview.widget.CardView>
-
         <LinearLayout
-            android:id="@+id/shop_recommend"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="30dp"
             android:orientation="vertical">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorConfigBlack"
-                android:textSize="18dp"
-                android:textFontWeight="bold"
-                android:text="人气推荐"/>
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_shop_item_recommend"
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/shop_navigation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-            </androidx.recyclerview.widget.RecyclerView>
+                <GridView
+                    android:id="@+id/gv_shop_banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="fill_horizontal"
+                    android:stretchMode="columnWidth">
+                </GridView>
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"/>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/shop_activity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <GridView
+                    android:id="@+id/gv_panic_buying_banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </GridView>
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:id="@+id/shop_recommend"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorConfigBlack"
+                    android:textSize="18dp"
+                    android:textFontWeight="bold"
+                    android:text="人气推荐"/>
+                <GridView
+                    android:id="@+id/gv_shop_item_recommend"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </GridView>
+            </LinearLayout>
+
         </LinearLayout>
 
     </LinearLayout>

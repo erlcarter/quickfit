@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="CircularProgressView">
+    <!--<declare-styleable name="CircularProgressView">
         <attr name="roundColor" format="color"/>
         <attr name="roundProgressColor" format="color"/>
         <attr name="roundWidth" format="dimension"/>
@@ -21,5 +21,5 @@
             <enum name="STROKE" value="0"></enum>
             <enum name="FILL" value="1"></enum>
         </attr>
-    </declare-styleable>
+    </declare-styleable>-->
 </resources>

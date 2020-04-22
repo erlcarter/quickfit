@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="400dp"
+    android:orientation="vertical"
+    android:background="@color/colorWhite"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:layout_constraintCircleRadius="15dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+        <ImageView
+            android:id="@+id/iv_popwindow_dismess"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:src="@drawable/popwindow_dismess"
+            android:layout_alignParentRight="true"/>
+        <TextView
+            android:id="@+id/tv_weight_record_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_popwindow_dismess"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="20dp"
+            android:textSize="18sp"
+            android:textColor="@color/colorConfigBlack"
+            android:text="今天"/>
+        <yanzhikai.ruler.KgNumberLayout
+            android:id="@+id/knl_bottom_head"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_weight_record_date"
+            app:kgTextSize="20sp"
+            app:scaleTextSize="50sp" />
+        <!--尺子-->
+        <yanzhikai.ruler.BooheeRuler
+            android:id="@+id/br_top_head"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_below="@+id/knl_bottom_head"
+            app:bigScaleLength="40dp"
+            app:bigScaleWidth="2.5dp"
+            app:count="10"
+            app:currentScale="666"
+            app:cursorDrawable="@drawable/cursor_shape"
+            app:cursorHeight="45dp"
+            app:cursorWidth="4dp"
+            app:maxScale="2000"
+            app:minScale="464"
+            app:numberTextSize="22sp"
+            app:paddingStartAndEnd="10dp"
+            app:rulerStyle="TOP_HEAD"
+            app:scaleInterval="11.5dp"
+            app:smallScaleLength="20dp"
+            app:smallScaleWidth="1.5dp"
+            app:textMarginHead="80dp" />
+    </RelativeLayout>
+    <Button
+        android:id="@+id/btn_save_weight_record"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/colorBlue"
+        android:textColor="@color/colorWhite"
+        android:textSize="18sp"
+        android:text="保存"/>
+
+</LinearLayout>

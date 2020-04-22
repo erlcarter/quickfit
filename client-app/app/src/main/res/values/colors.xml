@@ -11,6 +11,8 @@
     <color name="colorGray6">#99a0aa</color>
     <color name="colorGray8">#c4c8d0</color>
     <color name="colorBlue">#1b88ee</color>
+    <color name="colorBlueLight">#e0ffff</color>
     <color name="colorWhite">#ffffff</color>
+    <color name="colorRed">#ff2400</color>
 
 </resources>

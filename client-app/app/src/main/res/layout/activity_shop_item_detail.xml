@@ -1,9 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ffffff"
     tools:context=".activity.ShopItemDetailActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <include layout="@layout/shop_item_title_bar"/>
+
+    <ImageView
+        android:id="@+id/iv_shop_item_detail_img"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:src="@drawable/load_shop_item_1"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_shop_item_detail_real_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:layout_alignParentLeft="true"
+            android:textColor="@color/colorRed"
+            android:textSize="20sp"
+            android:text="￥9999"/>
+
+        <TextView
+            android:id="@+id/tv_shop_item_detail_original_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/tv_shop_item_detail_real_price"
+            android:textColor="@color/colorGray8"
+            android:textSize="14sp"
+            android:text="￥9999"/>
+
+        <TextView
+            android:id="@+id/tv_shop_item_detail_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_below="@+id/tv_shop_item_detail_real_price"
+            android:textColor="@color/colorConfigBlack"
+            android:textSize="18sp"
+            android:text="21天10斤挑战 升级款 Easy Ace™.全套(BMI24-27.9)"/>
+
+        <TextView
+            android:id="@+id/tv_shop_item_detail_sell"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/tv_shop_item_detail_title"
+            android:textColor="@color/colorGray8"
+            android:textSize="14sp"
+            android:text="累计销量9999"/>
+
+        <TextView
+            android:id="@+id/tv_shop_item_detail_logistical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/tv_shop_item_detail_title"
+            android:textColor="@color/colorGray8"
+            android:textSize="14sp"
+            android:text="由30天享瘦全餐仓发货"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorGray8"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/tv_shop_item_detail_coupon_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:textSize="16sp"
+            android:textColor="@color/colorConfigBlack"
+            android:textFontWeight="900"
+            android:text="优惠"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_shop_item_detail_coupon_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_shop_item_detail_coupon_title"
+            android:layout_alignParentLeft="true">
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <ImageView
+            android:id="@+id/iv_shop_item_detail_coupon_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_shop_item_detail_coupon_title"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@color/colorGray8"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp">
+
+        <TextView
+            android:id="@+id/tv_shop_item_detail_service_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@color/colorConfigBlack"
+            android:textFontWeight="900"
+            android:text="服务"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_shop_item_detail_service_title"
+            android:textSize="14sp"
+            android:textColor="@color/colorConfigBlack"
+            android:text="不支持7天无理由退换货"/>
+
+    </RelativeLayout>
+
+
+</LinearLayout>

@@ -16,9 +16,14 @@ public class Colors {
     private int colorWhite;
     private int colorConfigBlack;
     private int colorBlack5;
+    private int colorRed;
 
     public Colors(Context context) {
         this.context = context;
+    }
+
+    public int getColorRed() {
+        return colorRed = ContextCompat.getColor(context,R.color.colorRed);
     }
 
     public int getColorGray4() {

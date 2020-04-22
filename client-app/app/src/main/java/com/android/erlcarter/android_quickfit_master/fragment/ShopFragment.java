@@ -40,7 +40,7 @@ public class ShopFragment extends Fragment {
     private CardView shop_navigation,shop_activity;
     private LinearLayout shop_recommend;
     private GridView gv_shop_banner,gv_panic_buying_banner;
-    private RecyclerView rv_shop_item_recommend;
+    private GridView gv_shop_item_recommend;
 
     /**
      * bannerColumnWidth 列的宽度
@@ -174,7 +174,7 @@ public class ShopFragment extends Fragment {
         shop_recommend = view.findViewById(R.id.shop_recommend);
         gv_shop_banner = view.findViewById(R.id.gv_shop_banner);
         gv_panic_buying_banner = view.findViewById(R.id.gv_panic_buying_banner);
-        rv_shop_item_recommend = view.findViewById(R.id.rv_shop_item_recommend);
+        gv_shop_item_recommend = view.findViewById(R.id.gv_shop_item_recommend);
         //初始化shopbanner
         gv_shop_banner.setColumnWidth(bannerColumnWidth);
         gv_shop_banner.setHorizontalSpacing(bannerHorizontalSpacing);
@@ -214,10 +214,10 @@ public class ShopFragment extends Fragment {
         mAdapter = new ShopBannerAdapter(getContext(),mData);
         gv_shop_banner.setAdapter(mAdapter);
         //pnicbuyingbanner
-        mData2.add(new IconPanic(R.drawable.shop_hot,R.drawable.load_shop_item2,"开学减脂季","每日秒限量券"));
-        mData2.add(new IconPanic(R.drawable.shop_gift,R.drawable.load_shop_item2,"奶茶热量榜","关注领及肉丸"));
-        mData2.add(new IconPanic(R.drawable.shop_hot,R.drawable.load_shop_item2,"开学减脂季","每日秒限量券"));
-        mData2.add(new IconPanic(R.drawable.shop_gift,R.drawable.load_shop_item2,"奶茶热量榜","关注领及肉丸"));
+        mData2.add(new IconPanic(R.drawable.shop_hot,R.drawable.load_shop_item_2,"开学减脂季","每日秒限量券"));
+        mData2.add(new IconPanic(R.drawable.shop_gift,R.drawable.load_shop_item_2,"奶茶热量榜","关注领及肉丸"));
+        mData2.add(new IconPanic(R.drawable.shop_hot,R.drawable.load_shop_item_2,"开学减脂季","每日秒限量券"));
+        mData2.add(new IconPanic(R.drawable.shop_gift,R.drawable.load_shop_item_2,"奶茶热量榜","关注领及肉丸"));
 
         mAdapter2 = new PanicBuyingBannerAdapter(getContext(),mData2);
         gv_panic_buying_banner.setAdapter(mAdapter2);

@@ -22,10 +22,14 @@ import com.android.erlcarter.android_quickfit_master.R;
 import com.android.erlcarter.android_quickfit_master.adapter.CommuityVPAdapter;
 import com.android.erlcarter.android_quickfit_master.adapter.ShopNavigationGridViewAdapter;
 import com.android.erlcarter.android_quickfit_master.adapter.ShopNavigationRecyclerViewAdapter;
+import com.android.erlcarter.android_quickfit_master.adapter.ShopNavigationVPAdapter;
 import com.android.erlcarter.android_quickfit_master.data.Colors;
 import com.android.erlcarter.android_quickfit_master.data.NavigationItemData;
 import com.android.erlcarter.android_quickfit_master.fragment.ChoiceFragment;
+import com.android.erlcarter.android_quickfit_master.fragment.DBBCFragment;
+import com.android.erlcarter.android_quickfit_master.fragment.FBSSFragment;
 import com.android.erlcarter.android_quickfit_master.fragment.MomentFragment;
+import com.android.erlcarter.android_quickfit_master.fragment.XPGFragment;
 import com.android.erlcarter.android_quickfit_master.view.MyRecycleview;
 
 import java.util.ArrayList;
@@ -64,20 +68,26 @@ public class ShopItemNavigationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop_item_navigation);
+        //初始化UI
         initui();
+        //初始化数据
         initdata();
 //        initNavigationRecyclerView();
+        //初始化商品导航栏
         initNavigationGridView();
+        //启用监听
         initOnListener();
+        //初始化商品展示页
         initViewPager();
     }
 
     private void initViewPager() {
-        /*fragments = new ArrayList<Fragment>();
-        fragments.add(new ChoiceFragment());
-        fragments.add(new MomentFragment());
-        CommuityVPAdapter cvpAdapter = new CommuityVPAdapter(getFragmentManager(),fragments,titles);
-        vp_commuity.setAdapter(cvpAdapter);*/
+        fragments = new ArrayList<Fragment>();
+        fragments.add(new XPGFragment());//新品购
+        fragments.add(new FBSSFragment());//方便速食
+        fragments.add(new DBBCFragment());//蛋白补充
+        ShopNavigationVPAdapter svpAdapter = new ShopNavigationVPAdapter(getSupportFragmentManager(),fragments,testlist);
+        vp_shop_item.setAdapter(svpAdapter);
     }
 
     private void initui() {
@@ -99,7 +109,6 @@ public class ShopItemNavigationActivity extends AppCompatActivity {
 
     private void initOnListener(){
         //默认选中第一行
-
       gv_shop_item_navigation.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
@@ -107,6 +116,7 @@ public class ShopItemNavigationActivity extends AppCompatActivity {
                     View v = adapterView.getChildAt(i);
                     if (position == i) {//当前选中的item
                         view.setBackgroundColor(colors.getColorWhite());
+                        vp_shop_item.setCurrentItem(position,false);//直接切换，禁止滑动
                     }else{
                         v.setBackgroundColor(colors.getColorGray8());
                     }
