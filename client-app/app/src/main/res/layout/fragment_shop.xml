@@ -14,10 +14,13 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <include layout="@layout/shop_titlebar"/>
+
         <com.youth.banner.Banner
             android:id="@+id/shop_banner"
             android:layout_width="match_parent"
             android:layout_height="200dp"
+            android:layout_marginTop="5dp"
             app:indicator_width="10dp"
             app:indicator_height="10dp"
             app:indicator_margin="5dp"

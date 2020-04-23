@@ -13,10 +13,14 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true">
     </androidx.recyclerview.widget.RecyclerView>-->
+    <include android:id="@+id/shop_item_navigation_titlebar"
+        layout="@layout/shop_item_navigation_titlebar"/>
+
     <GridView
         android:id="@+id/gv_shop_item_navigation"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/shop_item_navigation_titlebar"
         android:stretchMode="columnWidth">
     </GridView>
     <androidx.viewpager.widget.ViewPager
@@ -24,6 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorWhite"
+        android:layout_below="@+id/shop_item_navigation_titlebar"
         android:layout_toRightOf="@+id/gv_shop_item_navigation">
     </androidx.viewpager.widget.ViewPager>
 

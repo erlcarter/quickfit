@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="65dp"
+    android:background="@color/colorBlue"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp"
+    android:paddingLeft="22dp"
+    android:paddingRight="22dp"
+    android:orientation="horizontal">
+    <EditText
+        android:id="@+id/et_host_search"
+        android:layout_width="340dp"
+        android:layout_height="32dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:drawableLeft="@drawable/quickfit_host_search"
+        android:drawablePadding="10dp"
+        android:background="@drawable/searchinput"
+        android:alpha="0.4"
+        android:hint="踏青季：99元体脂秤限量抢！"
+        android:textColor="@color/colorConfigBlack"
+        android:textColorHint="@color/colorWhite"
+        android:textSize="14dp"
+        />
+
+    <ImageView
+        android:id="@+id/iv_commuity_foodground"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
+        android:layout_marginRight="16dp"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/iv_host_message"
+        android:src="@drawable/cart2"
+        />
+
+    <ImageView
+        android:id="@+id/iv_host_message"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/message"
+        />
+</RelativeLayout>

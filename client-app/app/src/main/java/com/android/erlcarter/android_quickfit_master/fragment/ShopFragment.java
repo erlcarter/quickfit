@@ -196,20 +196,20 @@ public class ShopFragment extends Fragment {
         //测试数据
         //banner
         for (int i=0;i<3;i++){
-            imageUrl.add(R.drawable.load_shop_test);//图片
+            imageUrl.add(R.drawable.load_test2);//图片
             titles.add("测试"+i);//标题
         }
         //shopbanner
-        mData.add(new Icon(R.drawable.fit_new_item, "图标1"));
-        mData.add(new Icon(R.drawable.fit_quick_food, "图标2"));
-        mData.add(new Icon(R.drawable.fit_food, "图标3"));
-        mData.add(new Icon(R.drawable.fit_add_service, "图标4"));
-        mData.add(new Icon(R.drawable.fit_sub_service, "图标5"));
-        mData.add(new Icon(R.drawable.fit_exercise_apparatus, "图标6"));
-        mData.add(new Icon(R.drawable.fit_appurtenanceauxiliary, "图标7"));
-        mData.add(new Icon(R.drawable.fit_meat, "图标8"));
-        mData.add(new Icon(R.drawable.fit_drink, "图标9"));
-        mData.add(new Icon(R.drawable.fit_more, "图标10"));
+        mData.add(new Icon(R.drawable.fit_new_item, "新品购"));
+        mData.add(new Icon(R.drawable.fit_quick_food, "方便素食"));
+        mData.add(new Icon(R.drawable.fit_food, "蛋白补充"));
+        mData.add(new Icon(R.drawable.fit_add_service, "燃燃燃燃"));
+        mData.add(new Icon(R.drawable.fit_sub_service, "瘦身服务"));
+        mData.add(new Icon(R.drawable.fit_exercise_apparatus, "健身器材"));
+        mData.add(new Icon(R.drawable.fit_appurtenanceauxiliary, "智能表"));
+        mData.add(new Icon(R.drawable.fit_meat, "低脂肉肉"));
+        mData.add(new Icon(R.drawable.fit_drink, "冲泡饮品"));
+        mData.add(new Icon(R.drawable.fit_more, "更多"));
 
         mAdapter = new ShopBannerAdapter(getContext(),mData);
         gv_shop_banner.setAdapter(mAdapter);
@@ -240,7 +240,7 @@ public class ShopFragment extends Fragment {
         //设置banner样式(显示圆形指示器)
         shop_banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR);
         //设置指示器位置（指示器居右）
-        shop_banner.setIndicatorGravity(BannerConfig.RIGHT);
+        shop_banner.setIndicatorGravity(BannerConfig.CENTER);
         //设置图片加载器
         shop_banner.setImageLoader(new GlideImageLoader());
         //设置图片集合

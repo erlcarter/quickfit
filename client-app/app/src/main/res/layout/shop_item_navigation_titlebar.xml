@@ -11,7 +11,7 @@
         android:id="@+id/xiangqingye"
         android:layout_toRightOf="@+id/shop_detail_back_icons"
         android:layout_centerVertical="true"
-        android:text="商品详情页"
+        android:text="新品购"
         android:textColor="#ffffff"
         android:textSize="18sp"
         />

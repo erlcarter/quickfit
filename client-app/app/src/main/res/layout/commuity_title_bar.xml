@@ -20,9 +20,9 @@
             android:drawablePadding="10dp"
             android:background="@drawable/searchinput"
             android:alpha="0.4"
-            android:hint="搜索食物营养和热量"
+            android:hint="搜索动态、话题、用户"
             android:textColor="@color/colorConfigBlack"
-            android:textColorHint="@color/colorBlack5"
+            android:textColorHint="@color/colorWhite"
             android:textSize="14dp"
             />
 
@@ -33,7 +33,7 @@
             android:layout_marginRight="16dp"
             android:layout_centerVertical="true"
             android:layout_toLeftOf="@+id/iv_host_message"
-            android:background="@drawable/quickfit_commuity_foodground"
+            android:src="@drawable/food"
             />
 
         <ImageView
@@ -42,7 +42,7 @@
             android:layout_height="27dp"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
-            android:background="@drawable/quickfit_host_message"
+            android:src="@drawable/message"
             />
 
 </RelativeLayout>

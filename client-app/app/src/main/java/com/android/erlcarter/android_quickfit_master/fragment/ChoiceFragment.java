@@ -72,13 +72,13 @@ public class ChoiceFragment extends Fragment {
         //设置banner数据
         test1.setTitle("话题 | 你有拿手的减脂餐嘛？");
         test1.setContent("在线征集【减脂餐做法】啦！");
-        test1.setImg(R.drawable.load_test);
+        test1.setImg(R.drawable.load_test2);
         test2.setTitle("话题 | 你有拿手的减脂餐嘛？");
         test2.setContent("在线征集【减脂餐做法】啦！");
-        test2.setImg(R.drawable.load_test);
+        test2.setImg(R.drawable.load_test2);
         test3.setTitle("话题 | 你有拿手的减脂餐嘛？");
         test3.setContent("在线征集【减脂餐做法】啦！");
-        test3.setImg(R.drawable.load_test);
+        test3.setImg(R.drawable.load_test2);
         //添加到list
         list.add(test1);
         list.add(test2);
