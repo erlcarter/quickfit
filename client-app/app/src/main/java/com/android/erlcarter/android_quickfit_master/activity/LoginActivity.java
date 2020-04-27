@@ -11,13 +11,17 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 
 import com.android.erlcarter.android_quickfit_master.R;
@@ -29,13 +33,21 @@ import com.android.erlcarter.android_quickfit_master.data.UserData;
 import com.android.erlcarter.android_quickfit_master.utils.DBUtils;
 import com.android.erlcarter.android_quickfit_master.utils.LogUtil;
 import com.android.erlcarter.android_quickfit_master.utils.OkHttpUtils;
+import com.android.erlcarter.android_quickfit_master.utils.SharedPreferencesUtil;
+import com.android.erlcarter.android_quickfit_master.utils.encryptUtils;
 import com.bumptech.glide.load.engine.Resource;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.IllegalFormatException;
@@ -59,7 +71,10 @@ public class LoginActivity extends BaseActivity {
 
     protected Context context;
 
-    private TextView tv_login_title,tv_login_signature,tv_login_forgotpassword;
+    private TextView tv_login_title,tv_login_signature,
+            tv_login_forgotpassword,tv_login_reigster;
+
+    private ImageView publish_user_cancel,publish_psw_cancel;
 
     private EditText et_login_username,et_login_password;
 
@@ -67,7 +82,7 @@ public class LoginActivity extends BaseActivity {
 
     private int unameCount,pswCount,selectionStart,selectionEnd;
 
-    private String title,signature;
+    private String title,signature,uname,upsw;
 
     private Boolean flag,uTextState,pTextState;
 
@@ -113,12 +128,15 @@ public class LoginActivity extends BaseActivity {
     @Override
     protected void initData() {
         //初始化视图对象
-        tv_login_title = (TextView) findViewById(R.id.tv_login_title);
-        tv_login_signature = (TextView) findViewById(R.id.tv_login_signature);
-        tv_login_forgotpassword = (TextView) findViewById(R.id.tv_login_forgotpassword);
-        et_login_username = (EditText) findViewById(R.id.et_login_username);
-        et_login_password = (EditText) findViewById(R.id.et_login_password);
-        qrb_login = (Button) findViewById(R.id.qrb_login);
+        tv_login_title = findViewById(R.id.tv_login_title);
+        tv_login_signature = findViewById(R.id.tv_login_signature);
+        tv_login_forgotpassword = findViewById(R.id.tv_login_forgotpassword);
+        tv_login_reigster = findViewById(R.id.tv_login_reigster);
+        publish_user_cancel = findViewById(R.id.publish_user_cancel);
+        publish_psw_cancel = findViewById(R.id.publish_psw_cancel);
+        et_login_username = findViewById(R.id.et_login_username);
+        et_login_password = findViewById(R.id.et_login_password);
+        qrb_login = findViewById(R.id.qrb_login);
         //基本信息
         mbd = MembersData.getInstance();
         loginDatas = new HashMap<>();
@@ -144,7 +162,7 @@ public class LoginActivity extends BaseActivity {
      */
     @Override
     protected void initListener() {
-        //用户名
+        //用户名输入框监听
         et_login_username.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int end, int count) {
@@ -170,7 +188,7 @@ public class LoginActivity extends BaseActivity {
                 notifyLoginBtn();
             }
         });
-        //密码
+        //密码输入框监听
         et_login_password.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int end, int count) {
@@ -200,21 +218,36 @@ public class LoginActivity extends BaseActivity {
         qrb_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //1.获取et_login_username 和 et_login_password
-                String uname = et_login_username.getText().toString();
-                String upsw = et_login_password.getText().toString();
-                //2.对et_login_password加密编码（这里采用MD5加密）
-                upsw = encryptUtils("MD5",upsw);
-                //3.校验et_login_username 和 et_login_password
-                //flag = matchUserData(uname,upsw);
-                //4.登录成功则跳转至主页
-                flag = true;
-                if (flag) {
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    startActivity(intent);
-                }else{
-                    Toast.makeText(context,"用户名或密码不对，请重新输入",Toast.LENGTH_SHORT);
-                }
+                        //1.获取et_login_username 和 et_login_password
+                        uname = et_login_username.getText().toString();
+                        upsw = et_login_password.getText().toString();
+                        //2.校验et_login_username 和 et_login_password
+                        flag = matchUserData(uname,encryptUtils.encryptStr("MD5",upsw));
+                        //3.登录成功则跳转至主页
+                        if (flag) {
+                            Toast.makeText(LoginActivity.this,"登录成功",Toast.LENGTH_SHORT).show();
+                            //保存登录状态
+                            saveLoginStatus(true,uname);
+                            //跳转
+                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            startActivity(intent);
+                            //销毁LoginActivity
+                            finish();
+                        }else{
+                            Toast.makeText(getContext(),"用户名或密码不对，请重新输入",Toast.LENGTH_SHORT);
+                            //清空输入
+                            et_login_username.setText("");
+                            et_login_password.setText("");
+                        }
+            }
+        });
+        //注册账号
+        tv_login_reigster.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //跳转至找回注册页面
+                Intent intent = new Intent(LoginActivity.this,RegisterActivity.class);
+                startActivityForResult(intent,1);
             }
         });
         //忘记密码
@@ -223,10 +256,23 @@ public class LoginActivity extends BaseActivity {
             public void onClick(View view) {
                 //跳转至找回密码页面
                 Intent intent = new Intent(LoginActivity.this,FindPswActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent,2);
             }
         });
-
+        //清除用户输入框
+        publish_user_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                et_login_username.setText("");
+            }
+        });
+        //清除密码输入框
+        publish_psw_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                et_login_password.setText("");
+            }
+        });
     }
 
     /**
@@ -237,24 +283,26 @@ public class LoginActivity extends BaseActivity {
     protected void handleMessage(Message msg) {
         //用来处理子线程发来的数据
         switch (msg.what){
-            case 1:
-                Toast.makeText(LoginActivity.this,"获取云端数据成功!",Toast.LENGTH_LONG).show();
-                membersDataList=(LinkedList<Member>)msg.obj;
-                //更新SQLite
-                for (int i=0;i<membersDataList.size();i++){
-                    DBUtils.getInstance(context).saveMemberInfo(membersDataList.get(i));
-                }
-                break;
-            default:Toast.makeText(LoginActivity.this,"获取云端数据失败!",Toast.LENGTH_LONG).show();
+            case 0: Toast.makeText(LoginActivity.this, "密码与用户名不一致", Toast.LENGTH_SHORT).show();
                 break;
         }
     }
 
-    private void saveLoginStatus(boolean status, String username) {
+    private String readPassword(String username) {
+        SharedPreferences sp = getSharedPreferences("loginInfo",MODE_PRIVATE);
+        return sp.getString(username,"");
+    }
+
+    /**
+     * 保存用户登录状态
+     * @param status
+     * @param uname
+     */
+    private void saveLoginStatus(boolean status, String uname) {
         SharedPreferences sp = getSharedPreferences("loginInfo",MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
-        editor.putBoolean("isLogin",status);
-        editor.putString("LoginUserName",username);
+        editor.putBoolean("isLogin",status);//是否登录
+        editor.putString("LoginUserName",uname);//用户登录名
         editor.commit();
     }
 
@@ -266,68 +314,20 @@ public class LoginActivity extends BaseActivity {
      * @param uname
      * @param encryptPSW
      */
-    protected Boolean matchUserData(String uname,String encryptPSW){
-        //获取前台表单数据
-        loginDatas.put("memberUserName",uname);
-        loginDatas.put("memberPassWord",encryptPSW);
-        //校验数据合法性
-
-        //这就是访问后台的局域网地址+项目名+你的SSM框架中的controller方法，得加转义字符
-        String url="http:////192.168.1.103:8099//MyNote//MemberController//queryMemberByUnameAndPsw";
-        //把要传递的数据格式化成网络传输要求的格式
-        FormBody.Builder builder = new FormBody.Builder();
-        for (String key : loginDatas.keySet()) {
-            //追加表单信息
-            builder.add(key, loginDatas.get(key));
-        }
-        //封装为RequsetBody
-        RequestBody requestBody = builder.build();
-        OkHttpUtils.sendMessage(url, requestBody, new Callback() {//重写Callback
-            @Override
-            public void onFailure(Call call, IOException e) {//发送失败
-                Message msg=new Message();
-                //给个发送失败的的标志给主线程
-                msg.what=0;
-                handler.sendMessage(msg);
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {//处理发送成功
-                String responseData= URLDecoder.decode(response.body().string(), "utf-8");//可能产生编码方式不同造成乱码
-                Gson gson=new Gson();
-                //用Gson把数据转换为对象数组格式
-                LinkedList<Member> members=gson.fromJson(responseData,new TypeToken<LinkedList<Member>>(){}.getType());
-                LogUtil.d("取出来的数据1:", members.get(0).toString());
-                saveLoginStatus(true,members.get(0).getMamberUserName());
-                Message msg=new Message();
-                msg.what=1;
-                //把对象数组发给主线程，然后更新数据库
-                msg.obj=members;
-                handler.sendMessage(msg);
-            }
-        });
+   protected Boolean matchUserData(String uname,String encryptPSW){
+       String spPsw = readPassword(uname);
+       Message msg = new Message();
+        //检测用户名是否合法
+//        System.out.println("spPsw"+spPsw);
+//        System.out.println("encryptPSW"+encryptPSW);
+       //检测用户名和密码是否匹配
+       if (spPsw!= null && !TextUtils.isEmpty(spPsw)&&!encryptPSW.equals(spPsw)) {
+           msg.what = 0;
+           handleMessage(msg);
+       }else if(encryptPSW.equals(spPsw)){
+           return flag = true;
+       }
         return flag;
-    }
-
-    /**
-     * password进行明文加密
-     * 目前可使用的加密算法：MD5,SHA256
-     * @param encryptType
-     * @param psw
-     */
-    protected String encryptUtils(String encryptType,String psw){
-        switch (encryptType){
-            case "MD5":
-                encryptUtils(encryptType,psw);
-                break;
-            case "sha256":
-                encryptUtils(encryptType,psw);
-                break;
-            default:Toast.makeText(context,"非法加密类型，请联系后台管理人员",Toast.LENGTH_SHORT);
-                LogUtil.e("Please use legalEncryptType[MD5,sha256].",new Exception());
-                break;
-        }
-        return psw;
     }
 
     /**
@@ -366,4 +366,15 @@ public class LoginActivity extends BaseActivity {
         }
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (data!=null){
+            String username = data.getStringExtra("username");
+            if (!TextUtils.isEmpty(username)){
+                et_login_username.setText(username);
+                et_login_username.setSelection(username.length());
+            }
+        }
+    }
 }

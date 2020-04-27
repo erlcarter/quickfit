@@ -29,6 +29,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
                 + "memberId INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + "memberUserName VARCHAR, "// 用户名
                 + "memberPassWord VARCHAR, "// 密码
+                + "memberImagePath VARCHAR, "//头像
                 + "memberSex VARCHAR, "// 性别
                 + "memberBrithday VARCHAR, "// 出生日期
                 + "memberWeightNow DOUBLE, "// 最新体重

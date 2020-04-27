@@ -27,16 +27,17 @@ public class DBUtils {
     public void saveMemberInfo(Member member) {
         ContentValues cv = new ContentValues();
         cv.put("memberId", member.getMemberId());
-        cv.put("mamberUserName", member.getMamberUserName());
-        cv.put("mamberPassWord", member.getMamberPassWord());
-        cv.put("mamberSex", member.getMamberSex());
-        cv.put("mamberBrithday", member.getMamberBrithday());
-        cv.put("mamberWeightNow", member.getMamberWeightNow());
-        cv.put("mamberWeightTarget", member.getMamberWeightTarget());
-        cv.put("mamberWeightOriginal", member.getMamberWeightOriginal());
-        cv.put("mamberReduceWeightPlanWeek", member.getMamberReduceWeightPlanWeek());
-        cv.put("mamberDisease", member.getMamberDisease());
-        cv.put("mamberConsunmptionHabits", member.getMamberConsunmptionHabits());
+        cv.put("memberUserName", member.getMamberUserName());
+        cv.put("memberPassWord", member.getMamberPassWord());
+        cv.put("memberImagePath",member.getMemberImagePath());
+        cv.put("memberSex", member.getMamberSex());
+        cv.put("memberBrithday", member.getMamberBrithday());
+        cv.put("memberWeightNow", member.getMamberWeightNow());
+        cv.put("memberWeightTarget", member.getMamberWeightTarget());
+        cv.put("memberWeightOriginal", member.getMamberWeightOriginal());
+        cv.put("memberReduceWeightPlanWeek", member.getMamberReduceWeightPlanWeek());
+        cv.put("memberDisease", member.getMamberDisease());
+        cv.put("memberConsunmptionHabits", member.getMamberConsunmptionHabits());
         db.insert(SQLiteHelper.QF_MEMBER, null, cv);
     }
     /**
@@ -49,16 +50,17 @@ public class DBUtils {
         while (cursor.moveToNext()) {
             member = new Member();
             member.setMemberId(cursor.getInt(cursor.getColumnIndex("memberId")));
-            member.setMamberUserName(cursor.getString(cursor.getColumnIndex("mamberUserName")));
-            member.setMamberPassWord(cursor.getString(cursor.getColumnIndex("mamberPassWord")));
-            member.setMamberSex(cursor.getString(cursor.getColumnIndex("mamberSex")));
-            member.setMamberBrithday(cursor.getString(cursor.getColumnIndex("mamberBrithday")));
-            member.setMamberWeightNow(cursor.getDouble(cursor.getColumnIndex("mamberWeightNow")));
-            member.setMamberWeightTarget(cursor.getDouble(cursor.getColumnIndex("mamberWeightTarget")));
-            member.setMamberWeightOriginal(cursor.getDouble(cursor.getColumnIndex("mamberWeightOriginal")));
-            member.setMamberReduceWeightPlanWeek(cursor.getString(cursor.getColumnIndex("mamberReduceWeightPlanWeek")));
-            member.setMamberDisease(cursor.getString(cursor.getColumnIndex("mamberDisease")));
-            member.setMamberConsunmptionHabits(cursor.getString(cursor.getColumnIndex("mamberConsunmptionHabits")));
+            member.setMamberUserName(cursor.getString(cursor.getColumnIndex("memberUserName")));
+            member.setMamberPassWord(cursor.getString(cursor.getColumnIndex("memberPassWord")));
+            member.setMemberImagePath(cursor.getString(cursor.getColumnIndex("memberImagePath")));
+            member.setMamberSex(cursor.getString(cursor.getColumnIndex("memberSex")));
+            member.setMamberBrithday(cursor.getString(cursor.getColumnIndex("memberBrithday")));
+            member.setMamberWeightNow(cursor.getDouble(cursor.getColumnIndex("memberWeightNow")));
+            member.setMamberWeightTarget(cursor.getDouble(cursor.getColumnIndex("memberWeightTarget")));
+            member.setMamberWeightOriginal(cursor.getDouble(cursor.getColumnIndex("memberWeightOriginal")));
+            member.setMamberReduceWeightPlanWeek(cursor.getString(cursor.getColumnIndex("memberReduceWeightPlanWeek")));
+            member.setMamberDisease(cursor.getString(cursor.getColumnIndex("memberDisease")));
+            member.setMamberConsunmptionHabits(cursor.getString(cursor.getColumnIndex("memberConsunmptionHabits")));
         }
         cursor.close();
         return member;

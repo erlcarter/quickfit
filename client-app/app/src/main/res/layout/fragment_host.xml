@@ -7,7 +7,11 @@
     tools:context=".fragment.HostFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <RelativeLayout
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorWhite"
@@ -416,4 +420,6 @@
                     android:text="为你推荐"/>
             </androidx.cardview.widget.CardView>
     </RelativeLayout>
+
+    </ScrollView>
 </FrameLayout>

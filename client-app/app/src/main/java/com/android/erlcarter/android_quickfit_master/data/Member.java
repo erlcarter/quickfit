@@ -10,6 +10,8 @@ public class Member {
 
     private String mamberPassWord;
 
+    private String memberImagePath;
+
     private String mamberSex;
 
     private String mamberBrithday;
@@ -36,7 +38,7 @@ public class Member {
 
     public Member(String mamberSex, String mamberBrithday, Double mamberWeightNow,
                   Double mamberWeightTarget, Double mamberWeightOriginal, String mamberReduceWeightPlanWeek,
-                  String mamberDisease, String mamberConsunmptionHabits) {
+                  String mamberDisease, String mamberConsunmptionHabits,String memberImagePath) {
         this.mamberSex = mamberSex;
         this.mamberBrithday = mamberBrithday;
         this.mamberWeightNow = mamberWeightNow;
@@ -45,12 +47,13 @@ public class Member {
         this.mamberReduceWeightPlanWeek = mamberReduceWeightPlanWeek;
         this.mamberDisease = mamberDisease;
         this.mamberConsunmptionHabits = mamberConsunmptionHabits;
+        this.memberImagePath = memberImagePath;
     }
 
     public Member(int memberId, String mamberUserName, String mamberPassWord,
                   String mamberSex, String mamberBrithday, Double mamberWeightNow,
                   Double mamberWeightTarget, Double mamberWeightOriginal, String mamberReduceWeightPlanWeek,
-                  String mamberDisease, String mamberConsunmptionHabits) {
+                  String mamberDisease, String mamberConsunmptionHabits,String memberImagePath) {
         this.memberId = memberId;
         this.mamberUserName = mamberUserName;
         this.mamberPassWord = mamberPassWord;
@@ -62,6 +65,7 @@ public class Member {
         this.mamberReduceWeightPlanWeek = mamberReduceWeightPlanWeek;
         this.mamberDisease = mamberDisease;
         this.mamberConsunmptionHabits = mamberConsunmptionHabits;
+        this.memberImagePath = memberImagePath;
     }
 
     public int getMemberId() {
@@ -152,18 +156,27 @@ public class Member {
         this.mamberConsunmptionHabits = mamberConsunmptionHabits;
     }
 
+    public String getMemberImagePath() {
+        return memberImagePath;
+    }
+
+    public void setMemberImagePath(String memberImagePath) {
+        this.memberImagePath = memberImagePath;
+    }
+
     @Override
     public String toString() {
         return "Member{" +
                 "memberId=" + memberId +
                 ", mamberUserName='" + mamberUserName + '\'' +
                 ", mamberPassWord='" + mamberPassWord + '\'' +
+                ", memberImagePath='" + memberImagePath + '\'' +
                 ", mamberSex='" + mamberSex + '\'' +
                 ", mamberBrithday='" + mamberBrithday + '\'' +
                 ", mamberWeightNow=" + mamberWeightNow +
                 ", mamberWeightTarget=" + mamberWeightTarget +
                 ", mamberWeightOriginal=" + mamberWeightOriginal +
-                ", mamberReduceWeightPlanWeek=" + mamberReduceWeightPlanWeek +
+                ", mamberReduceWeightPlanWeek='" + mamberReduceWeightPlanWeek + '\'' +
                 ", mamberDisease='" + mamberDisease + '\'' +
                 ", mamberConsunmptionHabits='" + mamberConsunmptionHabits + '\'' +
                 '}';

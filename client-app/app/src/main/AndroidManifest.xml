@@ -2,15 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.android.erlcarter.android_quickfit_master">
-    <!-- Glide -->
-    <!-- 如果你计划从 URL 或一个网络连接中加载数据，你需要添加 INTERNET 和 ACCESS_NETWORK_STATE 权限 -->
+
     <uses-permission android:name="android.permission.INTERNET" />
-    <!--
-如果你正在从 URL 加载图片，Glide 可以自动帮助你处理片状网络连接：它可以监听用户的连接状态并在用户重新连接到网络时重启之前失败的请求。
-    如果 Glide 检测到你的应用拥有 ACCESS_NETWORK_STATE 权限，Glide 将自动监听连接状态而不需要额外的改动。
-    -->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 要从本地文件夹或 DCIM 或图库中加载图片，你将需要添加 READ_EXTERNAL_STORAGE 权限 -->
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- 而如果要将 Glide 的缓存存储到公有 SD 卡上，你还需要添加 WRITE_EXTERNAL_STORAGE 权限 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
@@ -22,7 +17,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:appComponentFactory">
-        <activity android:name=".activity.ShopItemDetailActivity"></activity>
+        <activity android:name=".activity.HealthPageActivity"></activity>
+        <activity android:name=".activity.MemberDetailInfoActivity" />
+        <activity android:name=".activity.MyPhotoActivity" />
+        <activity android:name=".activity.ShopItemDetailActivity" />
         <activity android:name=".activity.ShopItemNavigationActivity" />
         <activity android:name=".activity.HealthyClassRoomActivity" />
         <activity android:name=".activity.HealthAssessmentActivity" />
@@ -31,20 +29,25 @@
         <activity android:name=".activity.WeightRecordActivity" />
         <activity android:name=".activity.FindPswActivity" />
         <activity android:name=".activity.RegisterActivity" />
-        <activity android:name=".activity.MainActivity">
-            <!--<intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>-->
-        </activity>
+        <activity android:name=".activity.MainActivity" />
+        <activity android:name=".activity.ClipImageActivity" />
         <activity android:name=".activity.LoginActivity">
-           <intent-filter>
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.item.demo.photo.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
     </application>
 
 </manifest>

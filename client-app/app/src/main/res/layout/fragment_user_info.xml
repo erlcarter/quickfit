@@ -11,148 +11,165 @@
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorWhite"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:id="@+id/ll_userinfo"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_user_info"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorBlue"
-        android:orientation="vertical">
-        <!-- 顶栏 -->
-        <include layout="@layout/user_info_title_bar"/>
-        <!-- 中间 -->
-        <RelativeLayout
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/ll_userinfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
-            android:paddingLeft="22dp"
-            android:paddingRight="22dp"
-            android:gravity="center_horizontal">
-            <!-- part 1 -->
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/iv_userinfo_user_img"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/user_img"
-                android:layout_marginRight="15dp"
-                app:civ_border_color="@android:color/darker_gray"
-                app:civ_border_overlay="false"
-                app:civ_border_width="2dp"
-                app:civ_fill_color="@color/colorGray4"
-                android:layout_alignParentLeft="true"/>
-            <!-- part 2 -->
-            <LinearLayout
-                android:id="@+id/ll_userinfo_text"
+            android:orientation="vertical">
+            <!-- 顶栏 -->
+            <include layout="@layout/user_info_title_bar"/>
+            <!-- 中间 -->
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/iv_userinfo_user_img"
-                android:orientation="vertical">
-                <!--用户信息-->
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:paddingLeft="22dp"
+                android:paddingRight="22dp"
+                android:gravity="center_horizontal">
+                <!-- part 1 -->
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/iv_userinfo_user_img"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/user_img"
+                    android:layout_marginRight="15dp"
+                    app:civ_border_color="@android:color/darker_gray"
+                    app:civ_border_overlay="false"
+                    app:civ_border_width="2dp"
+                    app:civ_fill_color="@color/colorGray4"
+                    android:layout_alignParentLeft="true"/>
+                <!-- part 2 -->
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:id="@+id/tv_userinfo_uname"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/colorWhite"
-                        android:text="Bh119287574"/>
-                    <ImageView
-                        android:id="@+id/iv_editor"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                </LinearLayout>
-                <!--开通会员-->
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:id="@+id/tv_userinfo_signature"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="15dp"
-                        android:textColor="@color/colorWhite"
-                        android:text="开通Easy会员，享受更多健康权益。"/>
-                    <TextView
-                        android:layout_width="50dp"
-                        android:layout_height="30dp"
-                        android:background="@drawable/vipmemberbutton"
-                        android:textSize="12dp"
-                        android:text="开通会员"/>
-                </LinearLayout>
-                <!-- 动态 | 关注 | 粉丝 -->
-                <LinearLayout
+                    android:id="@+id/ll_userinfo_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginBottom="15dp"
-                    android:orientation="horizontal">
-                    <!-- 动态 -->
+                    android:layout_toRightOf="@+id/iv_userinfo_user_img"
+                    android:orientation="vertical">
+                    <!--用户信息-->
                     <LinearLayout
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
+                        android:orientation="horizontal">
                         <TextView
-                            android:id="@+id/tv_userinfo_trends_num"
+                            android:id="@+id/tv_userinfo_uname"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/colorWhite"
-                            android:text="0"/>
-                        <TextView
-                            android:id="@+id/tv_userinfo_trends_text"
+                            android:textColor="@color/colorConfigBlack"
+                            android:text="Bh119287574"/>
+                        <ImageView
+                            android:id="@+id/iv_editor"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/colorWhite"
-                            android:text="动态"/>
+                            android:layout_height="wrap_content"/>
                     </LinearLayout>
-                    <!-- 关注 -->
+                    <!--开通会员-->
                     <LinearLayout
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
+                        android:orientation="horizontal">
                         <TextView
-                            android:id="@+id/tv_userinfo_subscribe_num"
+                            android:id="@+id/tv_userinfo_signature"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/colorWhite"
-                            android:text="0"/>
+                            android:layout_marginRight="15dp"
+                            android:textColor="@color/colorConfigBlack"
+                            android:text="开通Easy会员，享受更多健康权益。"/>
                         <TextView
-                            android:id="@+id/tv_userinfo_subscribe_text"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/colorWhite"
-                            android:text="关注"/>
+                            android:layout_width="70dp"
+                            android:layout_height="30dp"
+                            android:padding="5dp"
+                            android:background="@drawable/vipmemberbutton"
+                            android:textSize="12dp"
+                            android:text="开通会员"/>
                     </LinearLayout>
-                    <!-- 粉丝 -->
+                    <!-- 动态 | 关注 | 粉丝 -->
                     <LinearLayout
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-                        <TextView
-                            android:id="@+id/tv_userinfo_fans_num"
-                            android:layout_width="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="15dp"
+                        android:orientation="horizontal">
+                        <!-- 动态 -->
+                        <LinearLayout
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/colorWhite"
-                            android:text="0"/>
-                        <TextView
-                            android:id="@+id/tv_userinfo_fans_text"
-                            android:layout_width="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_gravity="left"
+                            android:orientation="vertical">
+                            <TextView
+                                android:id="@+id/tv_userinfo_trends_num"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:textColor="@color/colorConfigBlack"
+                                android:text="0"/>
+                            <TextView
+                                android:id="@+id/tv_userinfo_trends_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:textColor="@color/colorConfigBlack"
+                                android:text="动态"/>
+                        </LinearLayout>
+                        <!-- 关注 -->
+                        <LinearLayout
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/colorWhite"
-                            android:text="粉丝"/>
+                            android:layout_weight="1"
+                            android:layout_gravity="center_horizontal"
+                            android:orientation="vertical">
+                            <TextView
+                                android:id="@+id/tv_userinfo_subscribe_num"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:textColor="@color/colorConfigBlack"
+                                android:text="0"/>
+                            <TextView
+                                android:id="@+id/tv_userinfo_subscribe_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:textColor="@color/colorConfigBlack"
+                                android:text="关注"/>
+                        </LinearLayout>
+                        <!-- 粉丝 -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_gravity="right"
+                            android:orientation="vertical">
+                            <TextView
+                                android:id="@+id/tv_userinfo_fans_num"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:textColor="@color/colorConfigBlack"
+                                android:text="0"/>
+                            <TextView
+                                android:id="@+id/tv_userinfo_fans_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:textColor="@color/colorConfigBlack"
+                                android:text="粉丝"/>
+                        </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
-            </LinearLayout>
-        </RelativeLayout>
+            </RelativeLayout>
 
-    </LinearLayout>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
 
     <LinearLayout
         android:layout_width="match_parent"

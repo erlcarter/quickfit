@@ -2,6 +2,7 @@ package com.android.erlcarter.android_quickfit_master.fragment;
 
 import android.app.ActionBar;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
@@ -21,6 +22,7 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 
 import com.android.erlcarter.android_quickfit_master.R;
+import com.android.erlcarter.android_quickfit_master.activity.HealthPageActivity;
 import com.android.erlcarter.android_quickfit_master.view.CircleProgressView;
 
 import yanzhikai.ruler.BooheeRuler;
@@ -37,7 +39,7 @@ public class RateFragment extends Fragment {
     private Window window;
     private WindowManager.LayoutParams wl;
     private PopupWindow popupWindow;
-    private Button btn_host_weight_record,btn_save_weight_record;
+    private Button btn_host_weight_record,btn_save_weight_record,btn_set_new_object;
     private BooheeRuler br_top_head;
     private KgNumberLayout knl_top_head;
     private ImageView iv_popwindow_dismess,iv_rate_back;
@@ -86,6 +88,14 @@ public class RateFragment extends Fragment {
                 getActivity().finish();
             }
         });
+        //设定新目标
+        btn_set_new_object.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), HealthPageActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void initdata() {
@@ -96,6 +106,7 @@ public class RateFragment extends Fragment {
     private void initui() {
         circleProgressView = view.findViewById(R.id.circleProgressbar);
         btn_host_weight_record = view.findViewById(R.id.btn_host_weight_record);
+        btn_set_new_object = view.findViewById(R.id.btn_set_new_object);
         iv_rate_back = view.findViewById(R.id.iv_rate_back);
     }
 
